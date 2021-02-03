@@ -1,0 +1,7 @@
+profile = "dev"
+region  = "ap-northeast-1"
+
+alert_teams_function_name = "guardduty-alert-teams"
+environment_label         = "Development"
+severity_threshold        = "2.0"
+teams_webhook_url         = "https://outlook.office.com/webhook/..."
