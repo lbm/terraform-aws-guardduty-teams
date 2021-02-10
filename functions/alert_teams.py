@@ -114,7 +114,10 @@ def send_card(card: Dict[str, Any]) -> bool:
 def lambda_handler(event: Dict[str, Any], context: Any) -> None:
     event_detail = event["detail"]
 
-    if event_detail["severity"] < SEVERITY_THRESHOLD:
+    if (
+        event_detail["severity"] < SEVERITY_THRESHOLD
+        or event_detail["createdAt"] != event_detail["updatedAt"]
+    ):
         logger.info(f'Supressing finding with ID {event_detail["id"]}')
         return
 

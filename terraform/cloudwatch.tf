@@ -15,6 +15,13 @@ data "aws_iam_policy_document" "alert_teams_log_policy" {
   }
 }
 
+resource "aws_lambda_permission" "allow_cloudwatch_invocation" {
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.alert_teams_function.function_name
+  principal     = "events.amazonaws.com"
+  source_arn    = aws_cloudwatch_event_rule.forward_finding_rule.arn
+}
+
 resource "aws_iam_policy" "alert_teams_log_policy" {
   name   = "${var.alert_teams_function_name}-cloudwatch-policy"
   policy = data.aws_iam_policy_document.alert_teams_log_policy.json
