@@ -26,6 +26,6 @@ terraform apply
 
 ## License
 
-This repository is distributed under the terms of the [ISC license](LICENSE.md).
+The code in this repository is distributed under the terms of the [ISC license](LICENSE.md).
 
 [blog-post]: https://lachlan.io/blog/integrating-aws-guardduty-with-microsoft-teams
